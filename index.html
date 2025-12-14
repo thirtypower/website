@@ -5,21 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>私のウェブサイト</title>
   <style>
+    :root {
+      --primary-color: #24292e;
+      --bg-color: #f0f2f5;
+    }
     body {
       font-family: sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--primary-color);
+    }
+    .main-container {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
       height: 100vh;
-      margin: 0;
-      background-color: #f0f2f5;
     }
-    h1 {
-      color: #333;
+    .main-container nav a {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <h1>こんにちは、GitHub Pages!</h1>
+  <div class="main-container">
+    <h1>チームポータル</h1>
+    <p>ここは私たちのチームの情報ハブです。</p>
+    <nav>
+      <a href="members.html">役割とスキルマップを見る</a>
+    </nav>
+  </div>
 </body>
 </html>
