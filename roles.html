@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ウィークリー・ロールカード - 私たちのチーム</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background-color: #f6f8fa;
+    }
+    header {
+      background-color: #24292e;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    header a {
+      color: white;
+    }
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .page-description {
+      background-color: #e6f7ff;
+      border: 1px solid #91d5ff;
+      border-radius: 6px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .role-cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .role-card {
+      background-color: white;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .role-card h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .role-card h3 {
+      font-size: 1rem;
+      color: #586069;
+      border-bottom: 1px solid #e1e4e8;
+      padding-bottom: 0.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .role-card ul {
+      padding-left: 20px;
+      margin: 0;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ウィークリー・ロールカード</h1>
+    <a href="index.html">トップページに戻る</a>
+  </header>
+  <div class="container">
+    <div class="page-description">
+      <p><strong>毎週月曜の朝会で、各自3分で今週の役割を宣言！</strong><br>その後、このページを更新するPull Requestを送り、チームの認識を合わせましょう。</p>
+    </div>
+    <div class="role-cards-container">
+      {% for member in site.data.members %}
+      <div class="role-card">
+        <h2>{{ member.name }}</h2>
+        <h3>私の役割:</h3>
+        <ul>
+          <li>{{ member.role }}</li>
+        </ul>
+        <h3>私が必ずやること:</h3>
+        <ul>
+          <li>{{ member.commitment }}</li>
+        </ul>
+        <h3>他メンバーに頼ってほしいこと:</h3>
+        <ul>
+          <li>{{ member.ask }}</li>
+        </ul>
+        <h3>私が困った時に相談する相手:</h3>
+        <ul>
+          <li>{{ member.consultant }}</li>
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
